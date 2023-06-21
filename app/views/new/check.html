@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Check your answers before sending your application" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl"> {{pageName}} </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "How many balls can you juggle?"
+            },
+            value: {
+              text: data.new.numberOfBalls
+            },
+            actions: {
+              items: [
+                {
+                  href: "/new/juggling-balls?returnUrl=/new/check",
+                  text: "Change",
+                  visuallyHiddenText: "the number of balls you can juggle"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What is your most impressive juggling trick?"
+            },
+            value: {
+              html: data.new.trick | nl2br
+            },
+            actions: {
+              items: [
+                {
+                  href: "/new/juggling-trick?returnUrl=/new/check",
+                  text: "Change",
+                  visuallyHiddenText: "your most impressive juggling trick"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <p>
+        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form method="post">
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

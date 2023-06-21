@@ -1,9 +1,27 @@
-//
-// For guidance on how to create routes see:
-// https://prototype-kit.service.gov.uk/docs/create-routes
-//
-
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+router.get('/', (req, res) => {
+  res.redirect('/new')
+})
+
+router.post('/new/juggling-balls', (req, res) => {
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
+    res.redirect('/new/juggling-trick')
+  }
+})
+
+router.post('/new/juggling-trick', (req, res) => {
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
+    res.redirect('/new/check')
+  }
+})
+
+router.post('/new/check', (req, res) => {
+  req.session.data.new = null;
+  res.redirect('/new/confirmation')
+})

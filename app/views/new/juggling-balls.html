@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "How many balls can you juggle?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post">
+      {{ govukRadios({
+        idPrefix: "[new][numberOfBalls]",
+        name: "[new][numberOfBalls]",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "3 or more",
+            text: "3 or more"
+          },
+          {
+            value: "1 or 2",
+            text: "1 or 2"
+          },
+          {
+            value: "None - I cannot juggle",
+            text: "None - I cannot juggle"
+          }
+        ],
+        value: data.new.numberOfBalls
+      }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
