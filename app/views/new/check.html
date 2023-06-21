@@ -37,6 +37,24 @@
           ,
           {
             key: {
+              text: "Your name"
+            },
+            value: {
+              text: data.new.firstName + ' ' + data.new.lastName
+            },
+            actions: {
+              items: [
+                {
+                  href: "/new/name?returnUrl=/new/check",
+                  text: "Change",
+                  visuallyHiddenText: "your name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
               text: "How many balls can you juggle?"
             },
             value: {

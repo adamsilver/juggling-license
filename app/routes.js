@@ -9,6 +9,14 @@ router.post('/new/email-address', (req, res) => {
   if(req.query.returnUrl) {
     res.redirect(`${req.query.returnUrl}`)
   } else {
+    res.redirect('/new/name')
+  }
+})
+
+router.post('/new/name', (req, res) => {
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
     res.redirect('/new/juggling-balls')
   }
 })

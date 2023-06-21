@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Your name" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        {{pageName}}
+      </h1>
+
+
+      <form method="post" novalidate>
+        {{ govukInput({
+          id: "[new][firstName]",
+          name: "[new][firstName]",
+          label: {
+            text: "First name",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Or given name"
+          },
+          value: data.new.firstName
+        }) }}
+
+        {{ govukInput({
+          id: "[new][lastName]",
+          name: "[new][lastName]",
+          label: {
+            text: "Last name",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Or family name"
+          },
+          value: data.new.lastName
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
