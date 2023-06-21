@@ -19,6 +19,24 @@
         rows: [
           {
             key: {
+              text: "Your email address"
+            },
+            value: {
+              text: data.new.emailAddress
+            },
+            actions: {
+              items: [
+                {
+                  href: "/new/email-address?returnUrl=/new/check",
+                  text: "Change",
+                  visuallyHiddenText: "your email address"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
               text: "How many balls can you juggle?"
             },
             value: {

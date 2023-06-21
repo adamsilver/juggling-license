@@ -5,6 +5,14 @@ router.get('/', (req, res) => {
   res.redirect('/new')
 })
 
+router.post('/new/email-address', (req, res) => {
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
+    res.redirect('/new/juggling-balls')
+  }
+})
+
 router.post('/new/juggling-balls', (req, res) => {
   if(req.query.returnUrl) {
     res.redirect(`${req.query.returnUrl}`)
@@ -22,6 +30,6 @@ router.post('/new/juggling-trick', (req, res) => {
 })
 
 router.post('/new/check', (req, res) => {
-  req.session.data.new = null;
+  req.session.data.new = {};
   res.redirect('/new/confirmation')
 })
