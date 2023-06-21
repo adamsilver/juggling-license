@@ -6,6 +6,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new/email-address', (req, res) => {
+  res.redirect(`/new/code?returnUrl=${req.query.returnUrl}`)
+})
+
+router.post('/new/code', (req, res) => {
   if(req.query.returnUrl) {
     res.redirect(`${req.query.returnUrl}`)
   } else {
