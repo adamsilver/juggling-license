@@ -88,8 +88,27 @@
               ]
             }
           }
+          ,
+          {
+            key: {
+              text: "What objects can you juggle with?"
+            },
+            value: {
+              html: data.new.objects | join(', ')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/new/juggling-objects?returnUrl=/new/check",
+                  text: "Change",
+                  visuallyHiddenText: "the objects you can juggle with"
+                }
+              ]
+            }
+          }
         ]
       }) }}
+
 
       <p>
         By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.

@@ -6,43 +6,27 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new/email-address', (req, res) => {
-  if(req.query.returnUrl) {
-    res.redirect(`/new/code?returnUrl=${req.query.returnUrl}`)
-  } else {
-    res.redirect('/new/code')
-  }
+  res.redirect('/new/code')
 })
 
 router.post('/new/code', (req, res) => {
-  if(req.query.returnUrl) {
-    res.redirect(`${req.query.returnUrl}`)
-  } else {
-    res.redirect('/new/name')
-  }
+  res.redirect('/new/name')
 })
 
 router.post('/new/name', (req, res) => {
-  if(req.query.returnUrl) {
-    res.redirect(`${req.query.returnUrl}`)
-  } else {
-    res.redirect('/new/juggling-balls')
-  }
+  res.redirect('/new/juggling-balls')
 })
 
 router.post('/new/juggling-balls', (req, res) => {
-  if(req.query.returnUrl) {
-    res.redirect(`${req.query.returnUrl}`)
-  } else {
-    res.redirect('/new/juggling-trick')
-  }
+  res.redirect('/new/juggling-trick')
 })
 
 router.post('/new/juggling-trick', (req, res) => {
-  if(req.query.returnUrl) {
-    res.redirect(`${req.query.returnUrl}`)
-  } else {
-    res.redirect('/new/check')
-  }
+  res.redirect('/new/juggling-objects')
+})
+
+router.post('/new/juggling-objects', (req, res) => {
+  res.redirect('/new/check')
 })
 
 router.post('/new/check', (req, res) => {
