@@ -15,6 +15,19 @@
 
       <h1 class="govuk-heading-l"> {{pageName}} </h1>
 
+      {% set jugglingObjects %}
+        <ul class="govuk-list govuk-list--bullet">
+          {% for item in data.new.objects %}
+            <li>
+              {{item}}
+              {% if item == 'Other' %}
+                - {{data.new.otherObject}}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endset %}
+
       {{ govukSummaryList({
         rows: [
           {
@@ -94,7 +107,7 @@
               text: "What objects can you juggle with?"
             },
             value: {
-              html: data.new.objects | join(', ')
+              html: jugglingObjects
             },
             actions: {
               items: [

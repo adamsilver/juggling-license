@@ -14,15 +14,31 @@ router.post('/new/code', (req, res) => {
 })
 
 router.post('/new/name', (req, res) => {
-  res.redirect('/new/juggling-balls')
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
+    res.redirect('/new/juggling-balls')
+  }
 })
 
 router.post('/new/juggling-balls', (req, res) => {
-  res.redirect('/new/juggling-trick')
+  if(req.body.new.numberOfBalls == 'None - I cannot juggle') {
+    res.redirect('/new/not-eligible')
+  } else {
+    if(req.query.returnUrl) {
+      res.redirect(`${req.query.returnUrl}`)
+    } else {
+      res.redirect('/new/juggling-trick')
+    }
+  }
 })
 
 router.post('/new/juggling-trick', (req, res) => {
-  res.redirect('/new/juggling-objects')
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
+    res.redirect('/new/juggling-objects')
+  }
 })
 
 router.post('/new/juggling-objects', (req, res) => {
