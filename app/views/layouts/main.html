@@ -8,3 +8,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% block footer %}
   {% include "_includes/footer.njk" %}
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="/public/javascripts/components/autocomplete.js"></script>
+{% endblock %}

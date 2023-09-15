@@ -17,6 +17,14 @@ router.post('/new/name', (req, res) => {
   if(req.query.returnUrl) {
     res.redirect(`${req.query.returnUrl}`)
   } else {
+    res.redirect('/new/country')
+  }
+})
+
+router.post('/new/country', (req, res) => {
+  if(req.query.returnUrl) {
+    res.redirect(`${req.query.returnUrl}`)
+  } else {
     res.redirect('/new/juggling-balls')
   }
 })
