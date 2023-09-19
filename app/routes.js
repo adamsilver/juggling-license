@@ -1,10 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.get('/', (req, res) => {
-  res.redirect('/new')
-})
-
 router.post('/new/email-address', (req, res) => {
   res.redirect('/new/code')
 })
