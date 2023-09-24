@@ -14,9 +14,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form method="post">
-        {{ govukTextarea({
+        {{ govukCharacterCount({
           name: "[new][trick]",
           id: "[new][trick]",
+          maxwords: 200,
           label: {
             text: pageName,
             classes: "govuk-label--l",
