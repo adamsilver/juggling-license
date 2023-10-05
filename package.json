@@ -9,6 +9,7 @@
     "@x-govuk/govuk-prototype-filters": "^1.2.0",
     "govuk-frontend": "4.7.0",
     "govuk-prototype-kit": "13.12.1",
-    "luxon": "^3.4.3"
+    "luxon": "^3.4.3",
+    "task-list-component": "^0.0.4"
   }
 }

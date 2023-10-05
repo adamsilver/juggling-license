@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ serviceName }}</h1>
+
+      <h2 class="govuk-heading-m">About you</h2>
+
+      {{govukTaskList({
+        items: [
+          {
+            href: "#",
+            title: {
+              text: "Name and date of birth"
+            },
+            status: {
+              classes: "govuk-task-list__status--text-colour",
+              text: "Completed"
+            }
+          },
+          {
+            href: "#",
+            title: {
+              text: "Contact details"
+            },
+            status: {
+              classes: "govuk-task-list__status--blue",
+              text: "Incomplete"
+            }
+          }
+        ]
+      })}}
+
+      <h2 class="govuk-heading-m">Your juggling</h2>
+
+      {{govukTaskList({
+        items: [
+          {
+            href: "#",
+            title: {
+              text: "Skills and abilities"
+            },
+            status: {
+              classes: "govuk-task-list__status--blue",
+              text: "Incomplete"
+            }
+          },
+          {
+            href: "#",
+            title: {
+              text: "Tricks and routines"
+            },
+            status: {
+              classes: "govuk-task-list__status--blue",
+              text: "Incomplete"
+            }
+          }
+        ]
+      })}}
+
+      {{ govukButton({
+        text: "Review and submit your application",
+        href: "#"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
